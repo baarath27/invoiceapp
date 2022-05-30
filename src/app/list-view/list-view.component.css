@@ -1,0 +1,48 @@
+.boxed {
+    border: 2px solid black;
+    border-radius: 5px;
+    }
+
+    table {
+        width: 100%;
+      }
+      .dotline{
+        border:none;
+border-top:1px dashed black;
+color:#fff;
+background-color:#fff;
+height:1px;
+width:100%;
+
+      }
+      .mat-header-cell {
+          
+        background: #e1f8f5		
+    }
+
+    /* #table{
+        
+    } */
+    /* .split {
+        height: 100%;
+        width: 50%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+      
+
+    .left{
+        left: 0;
+    }
+
+    .right{
+        right: 0;
+    } */
+
+    /* .mat-card {
+
+        background:fixed;
+    } */

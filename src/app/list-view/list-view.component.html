@@ -1,0 +1,155 @@
+<mat-card style=" margin-right: 166px; ">
+
+  <div class="boxed container" id="table" #table>
+    <div matCardTitle>
+      <br>
+
+      <p style="text-align: center;">Order Invoice</p>
+  </div>
+
+      <div style="text-align: right;">
+        <p matCardTitle > ABC Trading Limited </p>
+         <p> Chennai
+          <br>
+          +91 7030940586
+        </p>
+      
+      <hr>
+    </div>
+    <div matCardContent>
+      <div style="width: 50%; float: left;">
+        <p>
+          <b>Bill To :</b>{{BuyerDetail.BillerName}}
+        </p>
+
+        <p><b>GSTIN No : </b> {{BuyerDetail.GstNo}}</p>
+        <p><b>State : </b> {{BuyerDetail.state}}</p>
+
+      </div>
+      <div style="margin-left: 50%; text-align: right;">
+        <p><b>Place of Suppy : </b>{{BuyerDetail.placeofsupply}} </p>
+        <p><b>Invoice No : </b>{{BuyerDetail.InvoiceNo}} </p>
+        <p><b>Date : </b> {{ BuyerDetail.BillDate}}</p>
+        <!-- <p>svsvsv :</p> -->
+      </div>
+
+
+    </div>
+    <br>
+    <hr>
+
+    <!-- <table  class="table" >
+      
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>HSN No</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+          <th>PricePerUnit</th>
+          <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Item of Items">
+        <td>{{ Item.ItemName }}</td>
+        <td>{{ Item.HSNNo }}</td>
+        <td>{{ Item.Quantity }}</td>
+        <td>{{ Item.Unit }}</td>
+        <td>{{ Item.PricePerUnit }}</td>
+        <td>{{ Item.Amount }}</td>
+
+      </tr>
+    </tbody>
+    
+    </table>   -->
+
+    <table  mat-table [dataSource]="Items" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="ItemName">
+        <th mat-header-cell *matHeaderCellDef>
+          <h3>ItemName</h3>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.ItemName}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="HSNNo">
+        <th mat-header-cell *matHeaderCellDef>
+          <h3>HSNNo</h3>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.HSNNo}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Quantity">
+        <th mat-header-cell *matHeaderCellDef>
+          <h3>Quantity</h3>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.Quantity}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="Unit">
+        <th mat-header-cell *matHeaderCellDef>
+          <h3>Unit</h3>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.Unit}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="PricePerUnit">
+        <th mat-header-cell *matHeaderCellDef>
+          <h3>PricePerUnit</h3>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.PricePerUnit}} </td>
+      </ng-container>
+
+      <ng-container  matColumnDef="Amount">
+        <th mat-header-cell   *matHeaderCellDef>
+          <h3>Amount</h3>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <hr class="dotline">
+    <div matCardContent class="row" >
+      <div style="width: 50%;"></div>
+    <div style="width: 50% ;">
+
+      <div style=" float: left;">
+        <p>SUB Total : </p>
+        <p>CGST 9% on {{sum}} : </p>
+        <p>SGST 9 % on {{sum}} : </p>
+        <p>Total :</p>
+      </div>
+      <div style="text-align: center;">
+        <p>Rs {{sum}}</p>
+        <p>Rs {{cgst}} </p>
+        <p>Rs {{sgst}}</p>
+        <p>Rs {{Total}}</p>
+      </div>
+    </div>
+
+    </div>
+
+
+
+  </div>
+
+  <div style="text-align :right ;">
+    <button class="btn btn-primary" style="margin: 5px;" (click)="SubTotal()">Total</button>
+
+    <button class="btn btn-warning" style="margin: 5px;" (click)="download()">Export PDF</button>
+
+    <button class="btn btn-danger" style="margin: 5px;" (click)="DeleteItems()">Clear</button>
+  </div>
+
+
+</mat-card>

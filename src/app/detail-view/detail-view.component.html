@@ -1,0 +1,72 @@
+<mat-card >
+   
+    <div mat-card-content class="boxed container">
+    <div matCardTitle>
+        <p style="text-align: center;">Add Buyer Details</p>
+    </div>
+        <div class="row" style="margin: 10px;"> 
+        <label>Bill To:</label>
+        <textarea rows="4" name="Billername" [(ngModel)]="BillerName" [disabled]="BuyerIsDisable"  ></textarea>
+        <label> GSTIN No:</label>
+        <input type="text" name="GstNo" [(ngModel)]="GstNo" [disabled]="BuyerIsDisable" >
+        <label>State:</label>
+        <input type="text" name="State" [(ngModel)]="state"  [disabled]="BuyerIsDisable">
+        <label> Place of Supply:</label>
+        <input type="text" name="placeofosupply" [(ngModel)]="placeofsupply" [disabled]="BuyerIsDisable" >
+
+
+        <label>InVoice Number:</label>
+        <input type="number" name="InvoiceNO" [(ngModel)]="InvoiceNo" [disabled]="BuyerIsDisable" >
+        <label>Date:</label>
+        <input type="date" name="Billdate" [(ngModel)]="BillDate" [disabled]="BuyerIsDisable"  >
+    
+    </div>
+    <div style="text-align :right ;margin: 10px;">
+        
+        <button class="btn btn-primary" [disabled]="BuyerIsDisable" (click)="AddBuyer()">Update Buyer Details </button>
+        <button class="btn btn-primary" (click)="ResetBuyerDetail()" style="margin:5px"[disabled]="!BuyerIsDisable">Edit Details </button>
+
+      </div>
+  
+    
+    </div>
+
+    <div mat-card-content class="boxed container" >
+        <div matCardTitle>
+            <p style="text-align: center;">Add Item Details</p>
+        </div>
+       
+     
+       <form [formGroup]="productForm">
+        <div class= "row"  style="margin: 10px;">
+        
+            <label>Item Name :</label>
+            <input type="text" formControlName="ItemName" >
+            <label>HSN No :</label>
+            <input type="text" formControlName="HSNNo" >
+            <label>Quantity :</label>
+            <input type="text" formControlName="Quantity" >
+        
+        
+        
+        
+        <!-- <div class="row" style="margin: 10px;"> -->
+            <label>Unit :</label>
+            <input type="text" formControlName="Unit"  >
+       
+            <label>Price per Unit</label><br>
+            <input type="text" formControlName="PricePerUnit" >
+             <!-- <label>Amount</label><br>
+            <input type="text"  readonly>  -->
+        </div>
+        <div style="text-align :right ;margin: 10px;" >
+            <button class="btn btn-primary" (click)="addItem()">Add Item </button>
+          </div>
+        </form>
+       
+          
+
+
+                  </div>
+                
+</mat-card>
